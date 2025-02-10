@@ -1,0 +1,6 @@
+__pycache__
+server/static/videos
+server/static/output
+training/output
+training/tracked_output
+training/videos

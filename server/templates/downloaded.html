@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ski Racing Video Analysis - Downloaded</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>Ski Racing Video Analysis - Downloaded</h1>
+    <div class="video-section">
+        <div class="video-preview">
+            <video controls>
+                <source src="static/videos/{{video_name}}.mp4" type="video/mp4">
+            </video>
+        </div>
+        <div class="button-section">
+            <div class="redirect-button">
+                <form action="superimpose" method="POST">
+                    <input type="hidden" name="video_name" value="{{video_name}}">
+                    <button class="redirect" type="submit">Get Skeletal Superimposition</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    </html>
+</body>
+
+
+<script>
+    document.addEventListener('keydown', function(event) {
+        if (event.altKey && event.key === 'Enter') {
+            event.preventDefault();
+            document.querySelector('form').submit();
+        }
+    });
+</script>

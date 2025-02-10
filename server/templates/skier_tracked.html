@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ski Racing Video Analysis - Tracked</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>Ski Racing Video Analysis - Tracked</h1>
+    <div class="video-section">
+        <div class="video-preview">
+            <video controls>
+                <source src="static/videos/tracked_{{video_name}}.mp4" type="video/mp4">
+            </video>
+        </div>
+        <div class="button-section">
+            <div class="redirect-button">
+                <form action="results" method="POST">
+                    <input type="hidden" name="video_name" value="{{video_name}}">
+                    <input type="hidden" name="score" value="{{score}}">
+                    <button class="redirect" type="submit">Analyze Skier</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    </html>
+</body>
+
+
+<script>
+    document.addEventListener('keydown', function(event) {
+        if (event.altKey && event.key === 'Enter') {
+            event.preventDefault();
+            document.querySelector('form').submit();
+        }
+    });
+</script>

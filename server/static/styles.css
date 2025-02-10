@@ -1,0 +1,117 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+    margin: 0;
+}
+
+.replay {
+    position: absolute;
+}
+
+h1 {
+    text-align: center;
+}
+
+.container {
+    margin-top: 20px;
+    background: white;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 600px;
+    text-align: center;
+}
+
+.input-section {
+    justify-content: center;
+    margin: 20px 20px;
+}
+
+.input-label {
+    width: calc(90% + 20px);
+    display: inline-block;
+}
+
+input[type="text"] {
+    width: 90%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.video-section {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.video-preview {
+    flex: 70%;
+    float: left;
+    text-align: center;
+}
+
+video {
+    width: 95%;
+    float: right;
+    border-radius: 10px;
+    border-color: black;
+    border-style: solid;
+    border-width: 3px;
+}
+
+.button-section {
+    flex: 20%;
+    float: left;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.score-section {
+    flex: 20%;
+    float: left;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.score {
+    font-size: 64px;
+    font-weight: bold;
+}
+
+.redirect-button {
+}
+
+button.back {
+    display: inline-block;
+    align-self: flex-end;
+    text-align: center;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+}

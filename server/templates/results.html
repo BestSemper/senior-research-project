@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slalom Ski Rating Demo</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>Slalom Ski Racing Video Analysis</h1>
+    <div class="video-section">
+        <div class="video-preview">
+            <video controls>
+                <source src="static/videos/{{video_name}}.mp4" type="video/mp4">
+            </video>
+        </div>
+        <div class="score-section">
+            <p>Your Current Score:</p>
+            <div class="score" id="score">{{score}}/10</div>
+        </div>
+    </div>
+    </html>
+</body>
+
+
+<script>
+    document.addEventListener('keydown', function(event) {
+        if (event.altKey && event.key === 'Enter') {
+            event.preventDefault();
+            document.querySelector('form').submit();
+        }
+    });
+</script>

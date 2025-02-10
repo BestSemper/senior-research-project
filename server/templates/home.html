@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ski Racing Video Analysis</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>Ski Racing Video Analysis</h1>
+    <div class="container">
+        <div class="input-section">
+            <form action="download_video" method="POST">
+                <label for="videoUrl" class="input-label">YouTube URL</label><br>
+                <input type="text" name="video_url" id="videoUrl" placeholder="https://www.youtube.com/watch?v=6u-JjJBAjZQ" required autocomplete="off">
+                <br>
+                <label for="startTime" class="input-label">Start time (s)</label><br>
+                <input type="text" name="start_time" id="startTime" placeholder="0" required autocomplete="off">
+                <br>
+                <label for="endTime" class="input-label">End time (s)</label><br>
+                <input type="text" name="end_time" id="endTime" placeholder="20" required autocomplete="off">
+                <button class="form" type="submit">Download Video</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
+
+<script>
+    document.addEventListener('keydown', function(event) {
+        // Focus on YouTube URL input with Alt + 1
+        if (event.altKey && event.code === 'Digit1') {
+            event.preventDefault();
+            document.getElementById('videoUrl').focus();
+        }
+        // Focus on Start time input with Alt + 2
+        else if (event.altKey && event.code === 'Digit2') {
+            event.preventDefault();
+            document.getElementById('startTime').focus();
+        }
+        // Focus on End time input with Alt + 3
+        else if (event.altKey && event.code === 'Digit3') {
+            event.preventDefault();
+            document.getElementById('endTime').focus();
+        }
+        // Submit the form with Alt + Enter
+        else if (event.altKey && event.key === 'Enter') {
+            event.preventDefault();
+            document.querySelector('form').submit();
+        }
+    });
+</script>
