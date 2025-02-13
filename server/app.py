@@ -166,37 +166,9 @@ def superimposed():
     return render_template('superimposed.html', video_name=video_name)
 
 skier = 0
-skier_through_video = []
 previous_pose = []
 previous_box = []
 frames_skipped = 0
-
-def initial_conditions(all_poses, all_boxes):
-    global skier, previous_pose, previous_box, frames_skipped
-    max_frames = []
-    initial_skiers = []
-    start_frames = []
-    for start_frame in range(30):
-        for initial_skier in range(len(all_poses[start_frame])):
-            tmp_skier = initial_skier
-            previous_pose = []
-            previous_box = []
-            frames_skipped = 0
-            consecutive_frames = 0
-            for frame in range(start_frame, len(all_poses)):
-                tmp_skier = skier_num(all_poses[frame], all_boxes[frame])
-                if tmp_skier == -1:
-                    break
-                consecutive_frames += 1
-            max_frames.append(consecutive_frames)
-            initial_skiers.append(initial_skier)
-            start_frames.append(start_frame)
-    skier_return = initial_skiers[max_frames.index(max(max_frames))]
-    start_frame_return = start_frames[max_frames.index(max(max_frames))]
-    print(max_frames)
-    print(skier_return)
-    print(start_frame_return)
-    return skier_return, start_frame_return
 
 def skier_num(poses, boxes):
     global skier, previous_pose, previous_box, frames_skipped
@@ -222,7 +194,7 @@ def skier_num(poses, boxes):
     return skier
 
 def track_single_image(dimensions, poses, boxes):
-    global frames_skipped, skier_through_video
+    global frames_skipped
     skeleton_image = numpy.zeros((dimensions[0], dimensions[1], 3), dtype=numpy.uint8)
 
     if poses == []:
@@ -230,7 +202,6 @@ def track_single_image(dimensions, poses, boxes):
         return skeleton_image
 
     skier_num(poses, boxes)
-    skier_through_video.append(skier)
 
     if skier == -1:
         return skeleton_image

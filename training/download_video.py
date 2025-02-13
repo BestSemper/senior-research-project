@@ -48,10 +48,7 @@ def reduce_fps(video_path, output_path, new_fps):
     video = video.filter('fps', fps=new_fps, round='up')
     ffmpeg.output(video, output_path).run()
 
-# Format for each line: (youtube_url, video_start_time, video_end_time), # racer name, race date, slalom point
-
 def main():
-    # Remove videos from previous sessions to prevent caching errors
     files = glob.glob('videos/*')
     for f in files:
         os.remove(f)

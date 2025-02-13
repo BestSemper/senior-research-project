@@ -1,16 +1,8 @@
-[ #(video_url, start_time, end_time, track_skier, start_frame, slalom_points)
-    #("https://www.youtube.com/shorts/bU9MBZHtc0E", 0, 36, 241.81), # Ruby Rosh, 1/7/2022, 241.81 (doesn't work with shorts)
-
-    #("https://www.youtube.com/watch?v=m5Uj6p48v_U", 0, 33, 195.26), # Ruby Rosh, 3/5/2022, 195.26 (bad quality)
-
+[ #(video_url, start_time, end_time, skier_number, start_frame, slalom_points)
     ("https://www.youtube.com/watch?v=byTD1v33P7U", 0, 4, 0, 0, 135.18), # Ruby Rosh, 1/7/2024, 135.18
-    ("https://www.youtube.com/watch?v=byTD1v33P7U", 18, 48, 0, 0, 135.18), # Ruby Rosh, 1/7/2024, 135.18
 
     ("https://www.youtube.com/watch?v=bSXyTlDcXPk", 5, 24, 3, 0, 114.70), # Elanore Robb, 1/25/2023, 114.70
-    #("https://www.youtube.com/watch?v=bSXyTlDcXPk", 34, 51, 1, 0, 114.70), # Elanore Robb, 1/25/2023, 114.70 (bad cv detection)
     ("https://www.youtube.com/watch?v=bSXyTlDcXPk", 54, 66, 0, 0, 114.70), # Elanore Robb, 1/25/2023, 114.70
-
-    #("https://www.youtube.com/watch?v=_lH8N8s6Ibs", 0, 29, 99.08), # Caleb Lewandowski, 1/25/2023, 99.08 (bad url)
 
     ("https://www.youtube.com/watch?v=PRscy-DzQDA", 0, 15, 0, 0, 82.88), # Jaggen Qie, 1/24/2023, 82.88
     ("https://www.youtube.com/watch?v=PRscy-DzQDA", 18, 33, 0, 0, 82.88), # Jaggen Qie, 1/24/2023, 82.88
@@ -22,13 +14,10 @@
 
     ("https://www.youtube.com/watch?v=aTYt7gO1S5I", 0, 22, 0, 15, 70.8), # Jackson Reents, 1/24/2023, 70.8
     ("https://www.youtube.com/watch?v=aTYt7gO1S5I", 25, 50, 0, 72, 70.8), # Jackson Reents, 1/24/2023, 70.8
-    ("https://www.youtube.com/watch?v=aTYt7gO1S5I", 54, 74, 1, 0 70.8), # Jackson Reents, 1/24/2023, 70.8
+    ("https://www.youtube.com/watch?v=aTYt7gO1S5I", 54, 74, 1, 0, 70.8), # Jackson Reents, 1/24/2023, 70.8
 
     ("https://www.youtube.com/watch?v=6u-JjJBAjZQ", 0, 20, 1, 0, 69.97), # Ethan Ross, 1/24/2023, 69.97
     ("https://www.youtube.com/watch?v=6u-JjJBAjZQ", 21, 40, 0, 0, 69.97), # Ethan Ross, 1/24/2023, 69.97
 
     ("https://www.youtube.com/watch?v=-x1TfRHqGtA", 32, 39, 0, 2, 0), # Mikaela Shiffrin, 11/28/2021, 0
-    #("https://www.youtube.com/watch?v=-x1TfRHqGtA", 40, 51, 0), # Mikaela Shiffrin, 11/28/2021, 0 (bad cv detection)
-    #("https://www.youtube.com/watch?v=-x1TfRHqGtA", 59, 66, 0), # Mikaela Shiffrin, 11/28/2021, 0 (bad cv detection)
-    #("https://www.youtube.com/watch?v=-x1TfRHqGtA", 68, 73, 0), # Mikaela Shiffrin, 11/28/2021, 0 (bad angle)
 ]
