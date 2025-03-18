@@ -1,6 +1,15 @@
+.env
 __pycache__
+node_modules
+package-lock.json
+test.py
 server/static/videos
 server/static/output
-training/output
-training/tracked_output
 training/videos
+training/processed_videos
+training/skeletal_data
+training/skier_tracked
+training/output
+training/test
+training/dataset.txt
+venv

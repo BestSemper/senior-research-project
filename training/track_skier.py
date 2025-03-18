@@ -61,6 +61,10 @@ def track_skier(video_name, skier_number, start_frame):
             dataset_f.write(str(dimensions)+"\n\n")
             for frame in range(start_frame, len(all_poses)):
                 track_single_image(all_poses[frame], all_boxes[frame])
+                if all_poses[frame] == []:
+                    frames_skipped += 1
+                else:
+                    skier = skier_num(all_poses[frame], all_boxes[frame])
                 dataset_f.write(str(all_poses[frame][skier] if (skier != -1 and skier < len(all_poses[frame])) else []))
                 dataset_f.write("\n")
                 dataset_f.write(str(all_boxes[frame][skier] if (skier != -1 and skier < len(all_boxes[frame])) else []))
