@@ -30,7 +30,7 @@ def compute_avg(x):
     return tf.reduce_mean(x[:, :-1, :], axis=1)
 
 def main():
-    num_epochs = 7
+    num_epochs = 16
     video_names, labels, sequences = parse_dataset("dataset.txt")
     num_frames = subframe_length
     num_features = 34
@@ -44,7 +44,7 @@ def main():
     model.compile(optimizer="adam", loss="mean_squared_error", metrics=["mae"])
     model.summary()
 
-    model.fit(sequences, labels, epochs=16, batch_size=2)
+    model.fit(sequences, labels, epochs=num_epochs, batch_size=2)
     model.save("models/model.keras")
 
 if __name__ == '__main__':
