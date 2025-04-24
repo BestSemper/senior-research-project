@@ -4,6 +4,7 @@ from super_gradients.training.utils.visualization.pose_estimation import PoseVis
 import os
 import glob
 import ffmpeg
+import torch
 
 def process_single_image(image_prediction, filename):
     image = image_prediction.image
@@ -50,7 +51,14 @@ def main():
     for f in files:
         os.remove(f)
     
-    yolo_nas_pose = models.get("yolo_nas_pose_l", pretrained_weights="coco_pose").cuda()
+    device = (
+        "mps"
+        if torch.backends.mps.is_available()
+        else "cuda"
+        if torch.cuda.is_available()
+        else "cpu"
+    )
+    yolo_nas_pose = models.get("yolo_nas_pose_l", pretrained_weights="coco_pose").to(device)
 
     files = glob.glob("videos/*")
     for filename in sorted(files):
@@ -60,7 +68,9 @@ def main():
         with open(f"skeletal_data/{filename}.txt", "w") as f:
             f.write(str([int(video.get(cv2.CAP_PROP_FRAME_HEIGHT)), int(video.get(cv2.CAP_PROP_FRAME_WIDTH))])+"\n\n")
             f.close()
-        predictions = yolo_nas_pose.to("cuda").predict(f"videos/{filename}.mp4", conf=.1)
+        predictions = yolo_nas_pose.predict(
+            f"videos/{filename}.mp4", conf=0.1
+        )
         processed_frames = [process_single_image(image_prediction, filename) for image_prediction in predictions._images_prediction_gen]
         #create_video_from_frames(processed_frames, f'output/tmp_{filename}.mp4', fps=30.0)
         #encode_video(f'output/tmp_{filename}.mp4', f'output/{filename}.mp4')
