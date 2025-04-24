@@ -42,4 +42,4 @@ If you are using macOS and want to utilize Mac GPUs for model training, also ins
 
 
 # Issues
-If there are issues with super-gradients, look at this [GitHub Issue](https://github.com/Deci-AI/super-gradients/issues/2064), I had problems with this too.
+If there are issues with loading pre-trained weights for super-gradients, look at this [GitHub Issue](https://github.com/Deci-AI/super-gradients/issues/2064).
