@@ -1,13 +1,19 @@
-# senior-research-project
+# Ski Racing Video Analysis
 
 I created an AI model trained to automatically analyze a skier’s form and objectively quantify their skill through video analysis, providing clear, actionable feedback for performance improvement.
 
 
-# Training Process
-All coding and model training was done on a Macbook Pro M4 Max
+# The Process
+All coding and model training was done on a Macbook Pro M4 Max with 48 GB RAM and a 40-core GPU.
+
+1. Collect many YouTube slalom ski racing videos and record each skier's slalom points given in the U.S. Ski and Snowboard [website](https://www.usskiandsnowboard.org/public-tools/members).
+2. Put all of the data into `videos.txt` and Download each YouTube video by running `download_video.py`.
+3. Extract the pose data of the skier in the form of coordinates with YOLO-NAS-POSE by running  `get_pose_data.py`.
+4. Track the skier throughout the video by running `track_skier.py`.
+5. Train the model using tensorflow by running `train_model.py`
 
 
-# Install
+# Installation
 This project primarily uses Python for all parts, including both frontend and backend. All code was run with Ptyhon 3.9.6 to avoid package version conflicts. For testing the code, first download [Python 3.9.6](https://www.python.org/downloads/) if not installed already. Then, create a virtual environment:
 
 ```sh
@@ -33,3 +39,7 @@ pip install -r requirements.txt
 ```
 
 If you are using macOS and want to utilize Mac GPUs for model training, also install [tensorflow-metal](https://developer.apple.com/metal/tensorflow-plugin/).
+
+
+# Issues
+If there are issues with super-gradients, look at this [GitHub Issue](https://github.com/Deci-AI/super-gradients/issues/2064), I had problems with this too.
