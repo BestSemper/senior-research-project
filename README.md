@@ -2,8 +2,9 @@
 
 I created an AI model trained to automatically analyze a skier’s form and objectively quantify their skill through video analysis, providing clear, actionable feedback for performance improvement.
 
-# Local Testing
-- Model training was done on a Macbook Pro M4 Max 
+
+# Training Process
+All coding and model training was done on a Macbook Pro M4 Max
 
 
 # Install
@@ -31,4 +32,4 @@ Then, install all required packages by running
 pip install -r requirements.txt
 ```
 
-If you are using a MacOS and want to utilize Mac GPUs for model training, also install [tensorflow-metal](https://developer.apple.com/metal/tensorflow-plugin/).
+If you are using macOS and want to utilize Mac GPUs for model training, also install [tensorflow-metal](https://developer.apple.com/metal/tensorflow-plugin/).
