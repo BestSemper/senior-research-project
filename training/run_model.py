@@ -18,6 +18,7 @@ start_frame = 0
 
 subframe_length = 30
 
+
 def extract_video_id(youtube_url):
     # Standard format: https://www.youtube.com/watch?v=VIDEO_ID
     match = re.search(r'v=([A-Za-z0-9_-]+)', youtube_url)
@@ -35,6 +36,7 @@ def extract_video_id(youtube_url):
         return match.group(1)
 
     raise ValueError('Invalid YouTube URL')
+
 
 def download_video(link, id, start_time, end_time, download_path):
     cur_dir = os.getcwd()
@@ -54,19 +56,22 @@ def download_video(link, id, start_time, end_time, download_path):
     except Exception as e:
         print(f"Error downloading video: {str(e)}")
 
+
 def reduce_fps(video_path, output_path, new_fps):
     video = ffmpeg.input(video_path)
     video = video.filter('fps', fps=new_fps, round='up')
     ffmpeg.output(video, output_path).run()
 
+
 def process_single_image(image_prediction, filename):
     pose_data = image_prediction.prediction
 
-    with open(f"test/skeletal_data_{filename}.txt", "a") as f:
+    with open(f"test/pose_data_{filename}.txt", "a") as f:
         f.write(str(pose_data.poses.tolist())+"\n")
         f.write(str(pose_data.bboxes_xyxy.tolist())+"\n")
         f.write("\n")
         f.close()
+
 
 def skier_num(poses, boxes):
     global skier, previous_pose, previous_box, frames_skipped
@@ -90,6 +95,7 @@ def skier_num(poses, boxes):
     previous_pose = poses[skier]
     previous_box = boxes[skier]
     return skier
+
 
 def track_skier(video_name, skier_number, start_frame):
     global skier, previous_pose, previous_box, frames_skipped
@@ -120,6 +126,7 @@ def track_skier(video_name, skier_number, start_frame):
                 dataset_f.write("\n\n")
             dataset_f.close()
 
+
 def normalize_coordinates(keypoint, box):
     x_normalized, y_normalized = 0, 0
     if box[2] - box[0] > box[3] - box[1]:
@@ -131,6 +138,7 @@ def normalize_coordinates(keypoint, box):
         x_normalized += 1000 * (1 - (box[2] - box[0]) / (box[3] - box[1])) / 2
         y_normalized = 1000 * (keypoint[1] - box[1]) / (box[3] - box[1])
     return (x_normalized, y_normalized)
+
 
 def get_normalized_coordinates(video_name):
     with open(f"test/skier_tracked_{video_name}.txt", "r") as f:
@@ -147,6 +155,7 @@ def get_normalized_coordinates(video_name):
                 normalized_coordinates.append(coordinates)
             all_normalized_coordinates.append(normalized_coordinates)
         return all_normalized_coordinates
+
 
 def main():
     # files = glob.glob('test/*')
@@ -195,8 +204,6 @@ def main():
     # with open(f"test/predictions_{video_name}.txt", "w") as f:
     #     for prediction in predictions:
     #         f.write(str(prediction) + "\n")
-
-
 
 if __name__ == '__main__':
     main()

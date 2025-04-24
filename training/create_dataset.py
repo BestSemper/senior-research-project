@@ -1,11 +1,11 @@
 import glob
-import os
-
 import cv2
 import ffmpeg
 import numpy
 
+
 def normalize_coordinates(keypoint, box):
+    # Normalize the coordinates of keypoints based on the bounding box
     x_normalized, y_normalized = 0, 0
     if box[2] - box[0] > box[3] - box[1]:
         x_normalized = 1000 * (keypoint[0] - box[0]) / (box[2] - box[0])
@@ -17,10 +17,10 @@ def normalize_coordinates(keypoint, box):
         y_normalized = 1000 * (keypoint[1] - box[1]) / (box[3] - box[1])
     return (x_normalized, y_normalized)
 
+
 def process_file(filename):
     with open(f"skier_tracked/{filename}.txt", "r") as f:
         data = f.read().split("\n\n")
-        dimensions = eval(data[0])
         all_normalized_coordinates = []
         for frame in data[1:]:
             if frame == "":
@@ -34,13 +34,16 @@ def process_file(filename):
             all_normalized_coordinates.append(normalized_coordinates)
         return all_normalized_coordinates
 
+
 def find_video_index(videos, video_name):
+    # Find the index of the video in the list based on its name
     video_id = video_name[:video_name.rfind('_')]
     start_time = int(video_name[video_name.rfind('_')+1:video_name.rfind('-')])
     end_time = int(video_name[video_name.rfind('-')+1:])
     for i in range(len(videos)):
         if video_id in videos[i][0] and start_time==videos[i][1] and end_time==videos[i][2]:
             return i
+
 
 def get_skeleton_image(pose):
     image = numpy.zeros((1000, 1000, 3), dtype=numpy.uint8)
@@ -59,6 +62,7 @@ def get_skeleton_image(pose):
 
     return image
 
+
 def create_video_from_frames(frames, output_filename='output_video.mp4', fps=30.0):
     frame_height, frame_width, layers = frames[0].shape
 
@@ -71,31 +75,32 @@ def create_video_from_frames(frames, output_filename='output_video.mp4', fps=30.
     video.release()
     cv2.destroyAllWindows()
 
+
 def encode_video(input_path, output_path):
     ffmpeg.input(input_path).output(output_path, vcodec='libx264', crf=18, preset='fast', acodec='aac', audio_bitrate='128k').run()
 
+
 def main():
-    # files = glob.glob('processed_videos/*')
-    # for f in files:
-    #     os.remove(f)
-    
     with open("videos.txt", "r") as f:
         video_urls = eval(f.read())
-    print(video_urls)
+    
     files = glob.glob("skier_tracked/*")
     with open("dataset.txt", "w") as dataset_f:
         dataset_f.write("")
         dataset_f.close()
+
+    # Combine all tracked skier files into a single dataset file
     for filename in sorted(files):
         filename = filename.split("skier_tracked/")[1]
         filename = filename.split(".txt")[0]
         video_index = find_video_index(video_urls, filename)
         slalom_points = video_urls[video_index][5]
+        
         with open("dataset.txt", "a") as f:
             f.write(filename+"\n")
             f.write(str(slalom_points)+"\n")
             normalized_coordinates = process_file(filename)
-            frames = []
+            # frames = []
             for idx, frame in enumerate(normalized_coordinates):
                 if frame == [] and idx < len(normalized_coordinates)-1 and normalized_coordinates[idx+1] != []:
                     f.write("\n\n")
