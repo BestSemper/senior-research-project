@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ski Racing Video Analysis - Tracked</title>
+    <title>Ski Racing Video Analysis Demo - Tracked</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
-    <h1>Ski Racing Video Analysis - Tracked</h1>
+    <h1>Ski Racing Video Analysis Demo - Tracked</h1>
     <div class="video-section">
         <div class="video-preview">
             <video controls>
@@ -16,7 +16,7 @@
         </div>
         <div class="button-section">
             <div class="redirect-button">
-                <form action="results" method="POST">
+                <form action="run_model" method="POST">
                     <input type="hidden" name="video_name" value="{{video_name}}">
                     <input type="hidden" name="score" value="{{score}}">
                     <button class="redirect" type="submit">Analyze Skier</button>

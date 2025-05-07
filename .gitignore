@@ -2,7 +2,4 @@
 __pycache__
 node_modules
 package-lock.json
-test.py
-server/static/videos
-server/static/output
 venv

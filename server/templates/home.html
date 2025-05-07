@@ -3,22 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ski Racing Video Analysis</title>
+    <title>Ski Racing Video Analysis Demo</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
-    <h1>Ski Racing Video Analysis</h1>
+    <h1>Ski Racing Video Analysis Demo</h1>
     <div class="container">
         <div class="input-section">
             <form action="download_video" method="POST">
                 <label for="videoUrl" class="input-label">YouTube URL</label><br>
-                <input type="text" name="video_url" id="videoUrl" placeholder="https://www.youtube.com/watch?v=6u-JjJBAjZQ" required autocomplete="off">
+                <input type="text" name="video_url" id="videoUrl" placeholder="https://www.youtube.com/watch?v=6u-JjJBAjZQ" value="https://www.youtube.com/watch?v=6u-JjJBAjZQ" required autocomplete="off">
                 <br>
                 <label for="startTime" class="input-label">Start time (s)</label><br>
-                <input type="text" name="start_time" id="startTime" placeholder="0" required autocomplete="off">
+                <input type="text" name="start_time" id="startTime" placeholder="0" value="0" required autocomplete="off">
                 <br>
                 <label for="endTime" class="input-label">End time (s)</label><br>
-                <input type="text" name="end_time" id="endTime" placeholder="20" required autocomplete="off">
+                <input type="text" name="end_time" id="endTime" placeholder="20" value="20" required autocomplete="off">
                 <button class="form" type="submit">Download Video</button>
             </form>
         </div>

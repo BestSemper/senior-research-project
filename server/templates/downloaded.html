@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ski Racing Video Analysis - Downloaded</title>
+    <title>Ski Racing Video Analysis Demo - Downloaded</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
-    <h1>Ski Racing Video Analysis - Downloaded</h1>
+    <h1>Ski Racing Video Analysis Demo - Downloaded</h1>
     <div class="video-section">
         <div class="video-preview">
             <video controls>
@@ -15,12 +15,10 @@
             </video>
         </div>
         <div class="button-section">
-            <div class="redirect-button">
-                <form action="superimpose" method="POST">
-                    <input type="hidden" name="video_name" value="{{video_name}}">
-                    <button class="redirect" type="submit">Get Skeletal Superimposition</button>
-                </form>
-            </div>
+            <form action="superimpose" method="POST">
+                <input type="hidden" name="video_name" value="{{video_name}}">
+                <button class="redirect" type="submit">Get Skeletal Superimposition</button>
+            </form>
         </div>
     </div>
     </html>
