@@ -28,12 +28,14 @@ def extract_video_id(youtube_url):
 
 
 def download_video(link, start_time, end_time, download_path):
+    """
+    Download a video with the best video quality from YouTube using yt-dlp.
+    """
     cur_dir = os.getcwd()
     youtube_dl_options = {
         "download_ranges": download_range_func(None, [(start_time, end_time)]),
         "force_keyframes_at_cuts": True,
         "format": "bestvideo[height<=1080]+bestaudio/best[height<=1080]",
-        # Download with the best video quality available
         "format_sort": ["res:1080", "ext:mp4:m4a"],
         "encoding": "utf-8",
         "outtmpl": os.path.join(cur_dir, download_path),
@@ -48,7 +50,9 @@ def download_video(link, start_time, end_time, download_path):
 
 
 def reduce_fps(video_path, output_path, new_fps=30):
-    # Reduce the FPS of the video to 30 for consistency
+    """
+    Reduce the FPS of the video to 30 for consistency
+    """
     video = ffmpeg.input(video_path)
     video = video.filter("fps", fps=new_fps, round="up")
     ffmpeg.output(video, output_path).run()

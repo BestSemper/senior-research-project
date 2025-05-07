@@ -1,7 +1,7 @@
 [ #(video_url, start_time, end_time, skier_number, start_frame, slalom_points)
     ("https://www.youtube.com/watch?v=byTD1v33P7U", 0, 4, 0, 0, 135.18), # Ruby Rosh, 1/7/2024, 135.18
 
-    ("https://www.youtube.com/watch?v=bSXyTlDcXPk", 5, 24, 3, 0, 114.70), # Elanore Robb, 1/25/2023, 114.70
+    ("https://www.youtube.com/watch?v=bSXyTlDcXPk", 5, 24, 4, 0, 114.70), # Elanore Robb, 1/25/2023, 114.70
     ("https://www.youtube.com/watch?v=bSXyTlDcXPk", 54, 66, 0, 0, 114.70), # Elanore Robb, 1/25/2023, 114.70
 
     ("https://www.youtube.com/watch?v=PRscy-DzQDA", 0, 15, 0, 0, 82.88), # Jaggen Qie, 1/24/2023, 82.88

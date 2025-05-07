@@ -5,7 +5,9 @@ import numpy
 
 
 def normalize_coordinates(keypoint, box):
-    # Normalize the coordinates of keypoints based on the bounding box
+    """
+    Returns the normalized coordinates of the keypoint based on the bounding box.
+    """
     x_normalized, y_normalized = 0, 0
     if box[2] - box[0] > box[3] - box[1]:
         x_normalized = 1000 * (keypoint[0] - box[0]) / (box[2] - box[0])
@@ -36,7 +38,9 @@ def process_file(filename):
 
 
 def find_video_index(videos, video_name):
-    # Find the index of the video in the list based on its name
+    """
+    Find the index of the video in the list based on its name
+    """
     video_id = video_name[:video_name.rfind('_')]
     start_time = int(video_name[video_name.rfind('_')+1:video_name.rfind('-')])
     end_time = int(video_name[video_name.rfind('-')+1:])

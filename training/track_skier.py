@@ -4,7 +4,9 @@ import os
 
 
 def skier_num(poses, boxes, *args):
-    # Return the skier with the least error from the previous frame
+    """
+    Return the skier number with the least error from the previous frame
+    """
 
     # If the previous frame is empty, return the first skier
     skier, previous_pose, previous_box, frames_skipped = args
@@ -32,6 +34,9 @@ def skier_num(poses, boxes, *args):
 
 
 def track_skier(video_name, skier_number, start_frame):
+    """
+    Track the skier in the video and write the pose and box data to a file
+    """
     skier = skier_number
     previous_pose = []
     previous_box = []
@@ -75,6 +80,9 @@ def track_skier(video_name, skier_number, start_frame):
 
 
 def find_video_index(videos, video_name):
+    """
+    Returns the index of the video in the videos list based on the video name
+    """
     video_id = video_name[:video_name.rfind('_')]
     start_time = int(video_name[video_name.rfind('_')+1:video_name.rfind('-')])
     end_time = int(video_name[video_name.rfind('-')+1:])
@@ -101,8 +109,9 @@ def main():
         video_index = find_video_index(videos, filename)
         skier_number = videos[video_index][3]
         start_frame = videos[video_index][4]
-        print(filename)
+        print(f"Processing {filename} with skier number {skier_number} and start frame {start_frame}")
         track_skier(filename, skier_number, start_frame)
+
 
 if __name__ == '__main__':
     main()
