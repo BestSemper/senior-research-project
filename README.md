@@ -7,7 +7,7 @@ I created an AI model trained to automatically analyze a skier’s form and obje
 
 
 # The Process
-All coding and model training was done on a Macbook Pro M4 Max.
+All coding and model training was done on a Macbook Pro with Apple Silicon.
 
 1. Collect many YouTube slalom ski racing videos and record each skier's slalom points given in the U.S. Ski and Snowboard [website](https://www.usskiandsnowboard.org/public-tools/members).
 2. Put all of the data into `training/videos.txt` and download each YouTube video by running `training/download_video.py`.

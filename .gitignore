@@ -1,1 +1,3 @@
 venv
+server/static/files/*
+server/static/videos/*
