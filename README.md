@@ -46,7 +46,7 @@ If you are using macOS and want to utilize Mac GPUs for model training, also ins
 
 
 # Model Testing
-To test the model, either use the demo server by running `server/app.py` (recommended) or run `training/test_model.py` or. Make sure to go into the directory before running the Python files:
+To test the model, either use the demo server by running `server/app.py` (recommended) or run `training/test_model.py`. Make sure to go into the directory before running the Python files:
 
 ```sh
 cd server
