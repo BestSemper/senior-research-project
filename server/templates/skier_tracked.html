@@ -19,6 +19,12 @@
                 <form action="run_model" method="POST">
                     <input type="hidden" name="video_name" value="{{video_name}}">
                     <input type="hidden" name="score" value="{{score}}">
+                    <label for="model">Select Model:</label>
+                    <select name="model" id="model">
+                        <option value="cnn_model">CNN Model</option>
+                        <option value="lstm_model">LSTM Model</option>
+                    </select>
+                    <br>
                     <button class="redirect" type="submit">Analyze Skier</button>
                 </form>
             </div>

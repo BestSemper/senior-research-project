@@ -73,6 +73,11 @@ input[type="number"] {
     color: black;
 }
 
+select {
+    padding: 3px;
+    border-radius: 3px;
+}
+
 button {
     background-color: #3c3c3c;
     color: white;

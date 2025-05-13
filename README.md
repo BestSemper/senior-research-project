@@ -45,10 +45,10 @@ If you are using macOS and want to utilize Mac GPUs for model training, also ins
 
 
 # Model Testing
-To test the model, either run `training/test_model.py` or test in the server by running:
+To test the model, either run `training/test_model.py` or test in the server by first going into `/server`. Then, run:
 
 ```sh
-python server/app.py
+python app.py
 ```
 
 

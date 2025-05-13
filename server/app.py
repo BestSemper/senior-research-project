@@ -128,13 +128,14 @@ def skier_tracked():
 @app.route('/run_model', methods=['POST'])
 def run_model():
     video_name = request.form.get('video_name')
+    model = request.form.get('model')
     subframe_length = 30
 
     # Get normalized coordinates
     normalized_coordinates = scripts.get_normalized_coordinates(video_name)
 
     # Load the Keras model
-    model = load_model('static/models/cnn_model.keras', compile=False)
+    model = load_model(f'static/models/{model}.keras', compile=False)
 
     NOT_FOUND = "skier not found"
     predictions = [NOT_FOUND] * subframe_length
