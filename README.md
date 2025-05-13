@@ -1,6 +1,6 @@
 # Ski Racing Video Analysis
 
-I created an AI model trained to automatically analyze a skier’s form and objectively quantify their skill through video analysis, providing clear, actionable feedback for performance improvement.
+I trained an AI model to automatically analyze a skier’s form and objectively quantify their skill through video analysis, providing clear, actionable feedback for performance improvement.
 
 ![image](images/processed_sample1.png)
 
