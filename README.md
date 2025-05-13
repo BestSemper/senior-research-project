@@ -6,14 +6,15 @@ I created an AI model trained to automatically analyze a skier’s form and obje
 
 
 
-# The Process
+# The Training Process
 All coding and model training was done on a Macbook Pro with Apple Silicon.
 
-1. Collect many YouTube slalom ski racing videos and record each skier's slalom points given in the U.S. Ski and Snowboard [website](https://www.usskiandsnowboard.org/public-tools/members).
-2. Put all of the data into `training/videos.txt` and download each YouTube video by running `training/download_video.py`.
-3. Extract the pose data of the skier in the form of coordinates with YOLO-NAS-POSE by running `training/get_pose_data.py`.
-4. Track the skier throughout the video by running `training/track_skier.py`.
-5. Train the model using tensorflow by running `training/train_model.py`
+1. Collected many YouTube slalom ski racing videos and  each skier's slalom points given in the U.S. Ski and Snowboard [website](https://www.usskiandsnowboard.org/public-tools/members) and recorded them into `training/videos.txt`.
+2. Downloaded each collected video in `training/download_video.py`.
+3. Extracted the pose data of the skier for each video in the form of coordinates with YOLO-NAS-POSE in `training/get_pose_data.py`.
+4. Tracked the skier throughout each video with a custom tracking algorithm in `training/track_skier.py`.
+5. Normalized all coordinates and combined all data into a single labeled dataset in `training/create_dataset.py`.
+6. Trained the model using two Convolutional Neural Network (CNN) layers from Tensorflow's Keras library in `training/train_model.py`
 
 
 # Installation
