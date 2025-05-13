@@ -110,8 +110,8 @@ def track_skier():
     scripts.track_skier(video_name, skier_number, start_frame)
     poses, boxes = scripts.get_tracked_skier(video_name)
 
-    if os.path.exists(f"static/videos/skier_tracked_{video_name}.mp4"):
-        os.remove(f"static/videos/skier_tracked_{video_name}.mp4")
+    if os.path.exists(f"static/videos/tracked_{video_name}.mp4"):
+        os.remove(f"static/videos/tracked_{video_name}.mp4")
     scripts.create_tracked_video_from_images(video_name, poses, boxes, f"static/videos/tmp_tracked_{video_name}.mp4", fps=30.0)
     scripts.encode_video(f"static/videos/tmp_tracked_{video_name}.mp4", f"static/videos/tracked_{video_name}.mp4")
     os.remove(f"static/videos/tmp_tracked_{video_name}.mp4")

@@ -1,6 +1,6 @@
-flask
-ffmpeg-python
-opencv-python
-yt_dlp
-super-gradients
-tensorflow
+flask==3.1.0
+ffmpeg-python==0.2.0
+opencv-python==4.11.0.86
+yt_dlp==2025.3.31
+super-gradients==3.7.1
+tensorflow==2.13.1
