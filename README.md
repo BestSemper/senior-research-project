@@ -2,6 +2,8 @@
 
 I trained an AI model to automatically analyze a skier’s form and objectively quantify their skill through video analysis, providing clear, actionable feedback for performance improvement.
 
+See my project presentation and research poster [here](https://drive.google.com/drive/u/0/folders/17-Y_yLdH8KVOZXo__L7LQxmQnudO15Sp).
+
 ![image](images/processed_sample1.png)
 
 
