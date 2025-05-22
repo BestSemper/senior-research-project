@@ -6,6 +6,7 @@ import os
 import re
 import ffmpeg
 from super_gradients.training.utils.visualization.pose_estimation import PoseVisualization
+import logging 
 
 
 def extract_video_id(youtube_url):
@@ -31,6 +32,26 @@ def download_video(link, start_time, end_time, download_path):
     """
     Download a video with the best video quality from YouTube using yt-dlp.
     """
+
+    logging.basicConfig(level=logging.INFO)
+    logger = logging.getLogger(__name__)
+
+    class YoutubeLogger:
+        def debug(self, msg):
+            if msg.startswith('[debug] '):
+                logger.debug(msg)
+            else:
+                self.info(msg)
+
+        def info(self, msg):
+            logger.info(msg)
+
+        def warning(self, msg):
+            logger.warning(msg)
+
+        def error(self, msg):
+            logger.error(msg)
+
     cur_dir = os.getcwd()
     youtube_dl_options = {
         'download_ranges': download_range_func(None, [(start_time, end_time)]),
@@ -41,12 +62,11 @@ def download_video(link, start_time, end_time, download_path):
         'outtmpl': os.path.join(cur_dir, download_path),
         'quiet': True,
         'no_warnings': True,
+        'logger': YoutubeLogger(),
     }
-    try:
-        with yt_dlp.YoutubeDL(youtube_dl_options) as ydl:
-            ydl.download([link])
-    except Exception as e:
-        print(f"Error downloading video: {str(e)}")
+
+    with yt_dlp.YoutubeDL(youtube_dl_options) as ydl:
+        ydl.download([link])
 
 
 def reduce_fps(video_path, output_path, new_fps):
