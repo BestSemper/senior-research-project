@@ -1,4 +1,2 @@
 venv
-server/static/files/*
-server/static/videos/*
 .DS_Store
